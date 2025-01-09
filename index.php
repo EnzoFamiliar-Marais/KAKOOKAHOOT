@@ -5,62 +5,19 @@
 </head>
 <body>
 <?php
-$questions = [
-    array(
-        "name" => "ultime",
-        "type" => "text",
-        "text" => "Quelle est la réponse ultime?",
-        "answer" => "42",
-        "score" => 1
-    ),
-    array(
-        "name" => "cheval",
-        "type" => "radio",
-        "text" => "Quelle est la couleur du cheval blanc d'Henri IV?",
-        "choices" => [
-            array(
-                "text" => "Bleu",
-                "value" => "bleu"),
-            array(
-                "text" => "Blanc",
-                "value" => "blanc"),
-            array(
-                "text" => "Rouge",
-                "value" => "rouge"),
-        ],
-        "answer" => "blanc",
-        "score" => 2
-    ),
-    array(
-        "name" => "drapeau",
-        "type" => "checkbox",
-        "text" => "Quelles sont les couleurs du drapeau français?",
-        "choices" => [
-            array(
-                "text" => "Bleu",
-                "value" => "bleu"
-            ),
-            array(
-                "text" => "Blanc",
-                "value" => "blanc"
-            ),
-            array(
-                "text" => "Vert",
-                "value" => "vert"
-            ),
-            array(
-                "text" => "Jaune",
-                "value" => "jaune"
-            ),
-            array(
-                "text" => "Rouge",
-                "value" => "rouge"
-            )
-        ],
-        "answer" => ["bleu", "blanc", "rouge"],
-        "score" => 3
-    ),
-];
+
+
+class Autoloader{
+    static function register(){
+        spl_autoload_register(array(__CLASS__, 'autoload'));
+    }
+
+    static function autoload($fqcn) {
+        $path = str_replace('\\', '/', $fqcn);
+        require 'Classes/' . $path . '.php';
+    }
+}
+
 
 $question_total = 0;
 $question_correct = 0;
