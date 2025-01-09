@@ -84,7 +84,7 @@ $answer_handlers = array(
 );
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    echo "<form method='POST' action='quiz.php'><ol>";
+    echo "<form method='POST' action='index.php'><ol>";
     foreach ($questions as $q) {
         echo "<li>";
         $question_handlers[$q["type"]]($q);
