@@ -8,7 +8,6 @@
 
 
 
-
 $question_total = 0;
 $question_correct = 0;
 $score_total = 0;
@@ -120,6 +119,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     echo "Réponses correctes: " . $question_correct . "/" . $question_total . "<br>";
     echo "Votre score: " . $score_correct . "/" . $score_total . "<br>";
 }
+
+
+$action = $_REQUEST["action"] ?? false;
+switch ($action) {
+    case "submit":
+        break;
+    default:
+        break;
+}
+
 ?>
 </body>
 </html>
