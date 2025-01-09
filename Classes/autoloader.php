@@ -6,7 +6,7 @@ class Autoloader{
 
     static function autoload($fqcn) {
         $path = str_replace('\\', '/', $fqcn);
-        require 'Classes/' . $path . '.php';
+        require 'Classes/Form' . $path . '.php';
     }
 }
 ?>

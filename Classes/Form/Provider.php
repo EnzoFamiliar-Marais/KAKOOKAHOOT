@@ -1,5 +1,5 @@
 <?php
-namespace App\Models;
+namespace Classes\Form;
 
 class QuestionProvider {
     private $questions;
