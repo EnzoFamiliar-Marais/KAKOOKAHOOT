@@ -29,11 +29,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 
-$action = $_REQUEST["action"] ?? false;
 switch ($action) {
-    case "submit":
+    case "submit": 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            echo "<h1>Résultats</h1>";
+            verifier_reponses($questions, $_POST);
+        } else {
+            echo "Aucune réponse";
+        }
         break;
-    default:
+    
+    default: 
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            afficher_questions($questions);
+        }
         break;
 }
 
