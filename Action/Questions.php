@@ -35,7 +35,7 @@ $question_handlers = array(
 
 function afficher_questions($questions) {
     global $question_handlers;
-    echo "<form method='POST' action='index.php'><ol>";
+    echo "<form method='POST' action='index.php?action=submit'><ol>";
     foreach ($questions as $q) {
         echo "<li>";
         if (isset($question_handlers[$q->getType()])) {
