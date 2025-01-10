@@ -56,6 +56,9 @@ function reponses_questions($questions, $post_data) {
     foreach ($questions as $q) {
         $answer_handlers[$q->getType()]($q, $post_data[$q->getName()] ?? NULL);
         echo "Question: " . $q->getText() . "<br>";
+        if (is_array($post_data[$q->getName()])) {
+            echo "Votre réponse: " . implode(", ", $post_data[$q->getName()]) . "<br>";
+        } else
         echo "Votre réponse: " . ($post_data[$q->getName()] ?? "Aucune réponse") . "<br>";
         echo "Réponse correcte: " . implode(", ", (array)$q->getAnswer()) . "<br><br>";
     }

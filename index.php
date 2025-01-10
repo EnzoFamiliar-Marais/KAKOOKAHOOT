@@ -19,23 +19,9 @@ $score_correct = 0;
 
 $provider = new Classes\Form\QuestionProvider('Data/questions.JSON');
 $questions = $provider->getQuestions();
+$action = $_GET['action'] ?? null;
 
 
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    afficher_questions($questions);
-} else {
-    verifier_reponses($questions, $_POST);
-}
-
-
-$action = $_REQUEST["action"] ?? false;
-switch ($action) {
-    case "submit":
-        break;
-    default:
-        break;
-}
 
 ?>
 </body>
