@@ -2,11 +2,6 @@
 namespace Classes\Form\Type;
 
 
-use Classes\Form\Type\Choices;
-
-require_once __DIR__ . '/Choices.php';
-var_dump(class_exists('Classes\Form\Type\Choices'));
-var_dump(__DIR__ . '/Choices.php');
 
 class Question {
     private $name;
@@ -20,7 +15,7 @@ class Question {
         $this->name = $name;
         $this->type = $type;
         $this->text = $text;
-        $this->choices = new Choices($choices);
+        $this->choices = $choices;
         $this->answer = $answer;
         $this->score = $score;
     }

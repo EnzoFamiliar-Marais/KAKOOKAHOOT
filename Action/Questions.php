@@ -1,4 +1,6 @@
 <?php
+
+
 function question_text($q) {
     echo ($q->getText() . "<br><input type='text' name='" . $q->getName() . "'><br>");
 }
@@ -8,8 +10,8 @@ function question_radio($q) {
     $i = 0;
     foreach ($q->getChoices() as $c) {
         $i += 1;
-        $html .= "<input type='radio' name='" . $q->getName() . "' value='" . $c->getValue() . "' id='" . $q->getName() . "-$i'>";
-        $html .= "<label for='" . $q->getName() . "-$i'>" . $c->getText() . "</label><br>";
+        $html .= "<input type='radio' name='" . $q->getName() . "' value='" . $c["value"] . "' id='" . $q->getName() . "-$i'>";
+        $html .= "<label for='" . $q->getName() . "-$i'>" . $c["text"] . "</label><br>";
     }
     echo $html;
 }
@@ -19,8 +21,8 @@ function question_checkbox($q) {
     $i = 0;
     foreach ($q->getChoices() as $c) {
         $i += 1;
-        $html .= "<input type='checkbox' name='" . $q->getName() . "[]' value='" . $c->getValue() . "' id='" . $q->getName() . "-$i'>";
-        $html .= "<label for='" . $q->getName() . "-$i'>" . $c->getText() . "</label><br>";
+        $html .= "<input type='checkbox' name='" . $q->getName() . "[]' value='" . $c["value"] . "' id='" . $q->getName() . "-$i'>";
+        $html .= "<label for='" . $q->getName() . "-$i'>" . $c["text"] . "</label><br>";
     }
     echo $html;
 }

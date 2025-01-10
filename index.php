@@ -10,6 +10,7 @@
 require_once 'Classes/autoloader.php';
 require_once 'Classes/Form/QuestionProvider.php';
 require_once 'Action/Questions.php';
+require_once 'Action/Reponses.php';
 
 $question_total = 0;
 $question_correct = 0;

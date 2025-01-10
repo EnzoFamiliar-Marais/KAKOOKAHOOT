@@ -17,12 +17,12 @@ class QuestionProvider {
         $data = json_decode(file_get_contents($file), true);
         foreach ($data as $q) {
             $this->questions[] = new Question(
-                $q->getName(), 
-                $q->getType(), 
-                $q->getText(),
-                $q->getAnswer(), 
-                $q->getScore(), 
-                $q->getChoices() ?? []
+                $q["name"], 
+                $q["type"], 
+                $q["text"],
+                $q["answer"], 
+                $q["score"], 
+                $q["choices"] ?? []
             );
         }
     }
