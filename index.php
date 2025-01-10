@@ -1,42 +1,26 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - QCM en Ligne</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php
 
+    <header>
+        <h1>Bienvenue sur notre plateforme de QCM en ligne</h1>
+        <nav>
+            <a href="index.php">Accueil</a>
+            <a href="Action/Quiz.php">Participer à un QCM</a>
+            <a href="resultats.php">Voir mes résultats</a>
+        </nav>
+    </header>
 
-require_once 'Classes/autoloader.php';
-require_once 'Classes/Form/QuestionProvider.php';
-require_once 'Action/Questions.php';
-require_once 'Action/Reponses.php';
+    <div class="content">
+        <h2>Bienvenue sur la page d'accueil</h2>
+        <p>Vous pouvez participer à un QCM ou consulter vos résultats à tout moment.</p>
+    </div>
 
-$question_total = 0;
-$question_correct = 0;
-$score_total = 0;
-$score_correct = 0;
-
-$provider = new Classes\Form\QuestionProvider('Data/questions.JSON');
-$questions = $provider->getQuestions();
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    afficher_questions($questions);
-} else {
-    verifier_reponses($questions, $_POST);
-}
-
-
-$action = $_REQUEST["action"] ?? false;
-switch ($action) {
-    case "submit":
-        break;
-    default:
-        break;
-}
-
-?>
 </body>
 </html>
