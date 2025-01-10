@@ -1,5 +1,5 @@
 <?php
-namespace Classes\Form;
+namespace Classes\Form\Type;
 
 class Question {
     private $name;

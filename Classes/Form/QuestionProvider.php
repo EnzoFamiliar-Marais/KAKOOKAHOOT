@@ -2,6 +2,9 @@
 namespace Classes\Form;
 
 use Classes\Form\Type\Question;
+require_once __DIR__ . '/Type/Question.php';
+
+
 
 class QuestionProvider {
     private $questions = [];
@@ -16,7 +19,7 @@ class QuestionProvider {
             $this->questions[] = new Question(
                 $q["name"], 
                 $q["type"], 
-                $q["text"], 
+                $q["text"],
                 $q["answer"], 
                 $q["score"], 
                 $q["choices"] ?? []
