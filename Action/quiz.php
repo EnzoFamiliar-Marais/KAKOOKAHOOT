@@ -1,8 +1,19 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participer - QCM en Ligne</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+<header>
+    <h1>Bienvenue sur notre plateforme de QCM en ligne</h1>
+    <nav>
+        <a href="../index.php">Accueil</a>
+        <a href="quiz.php">Participer à un QCM</a>
+        <a href="resultats.php">Voir mes résultats</a>
+    </nav>
+</header>
 <body>
 <?php
 
@@ -37,7 +48,7 @@ function question_radio($q) {
     foreach ($q["choices"] as $c) {
         $i += 1;
         $html .= "<input type='radio' name='$q[name]' value='$c[value]' id='$q[name]-$i'>";
-        $html .= "<label for='$q[name]-$i'>$c[text]</label>";
+        $html .= "<label for='$q[name]-$i'>$c[text]</label><br>";
     }
     echo $html;
 }
@@ -58,7 +69,7 @@ function question_checkbox($q) {
     foreach ($q["choices"] as $c) {
         $i += 1;
         $html .= "<input type='checkbox' name='$q[name][]' value='$c[value]' id='$q[name]-$i'>";
-        $html .= "<label for='$q[name]-$i'>$c[text]</label>";
+        $html .= "<label for='$q[name]-$i'>$c[text]</label><br>";
     }
     echo $html;
 }
@@ -88,10 +99,11 @@ $answer_handlers = array(
 );
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    echo "<form method='POST' action='index.php'><ol>";
+    echo "<form method='POST' action='quiz.php'><ol>";
     foreach ($questions as $q) {
         echo "<li>";
         $question_handlers[$q["type"]]($q);
+        echo "</li>";
     }
     echo "</ol><input type='submit' value='Envoyer'></form>";
 } else {
@@ -104,26 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $answer_handlers[$q["type"]]($q, $_POST[$q["name"]] ?? NULL);
     }
 
-    
-    $id = 0;
-    $reponse = "";
-    foreach ($answer_handlers as $q) {
-        if (is_array($questions[$id]["answer"])){
-            foreach ($questions[$id]["answer"] as $q) {
-                $reponse .= $q . " ";
-            }
-            echo "Reponse à la question  : " . $reponse . "<br>";
-        }
-        else {
-            echo "Reponse à la question  : " . $questions[$id]["answer"] . "<br>";
-        }
-        
-        $id ++ ;
-    }
-    echo "Réponses correctes: " . $question_correct . "/" . $question_total . "<br>";
-    echo "Votre score: " . $score_correct . "/" . $score_total . "<br>";
+    // Affichage des réponses et du score final avec style
+    echo "<div class='result'>";
+    echo "<p>Réponses correctes: <span class='result-correct'>" . $question_correct . "/" . $question_total . "</span></p>";
+    echo "<p>Votre score: <span class='result-score'>" . $score_correct . "/" . $score_total . "</span></p>";
+    echo "</div>";
 }
-
 
 $action = $_REQUEST["action"] ?? false;
 switch ($action) {
