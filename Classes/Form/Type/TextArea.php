@@ -2,8 +2,7 @@
 
 namespace Form\Type;
 use Classes\GenericFormElement;
-final class Textarea extends GenericFormElement
-{
+final class Textarea{
     public function render(): string
     {
         return sprintf(
