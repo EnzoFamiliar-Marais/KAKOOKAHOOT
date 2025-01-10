@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #470168;
+}
+
+/* Style pour le header */
+header {
+    background-color: #6f059c;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #512DA8; /* Violet plus foncé */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Changement de couleur au survol des boutons */
+nav a:hover {
+    background-color: #9575CD; /* Violet clair */
+}
+
+/* Style pour le contenu */
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content h2 {
+    color: #efe8ff; /* Violet pour le titre */
+}
+
+.content p {
+    color: #ffe6e6;
+}
