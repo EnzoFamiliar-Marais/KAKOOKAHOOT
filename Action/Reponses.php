@@ -54,12 +54,16 @@ function verifier_reponses($questions, $post_data) {
 function reponses_questions($questions, $post_data) {
     global $answer_handlers;
     foreach ($questions as $q) {
-        $answer_handlers[$q->getType()]($q, $post_data[$q->getName()] ?? NULL);
+        $post_value = $post_data[$q->getName()] ?? NULL;
+
+        $answer_handlers[$q->getType()]($q, $post_value);
+
         echo "Question: " . $q->getText() . "<br>";
-        if (is_array($post_data[$q->getName()])) {
-            echo "Votre réponse: " . implode(", ", $post_data[$q->getName()]) . "<br>";
-        } else
-        echo "Votre réponse: " . ($post_data[$q->getName()] ?? "Aucune réponse") . "<br>";
+        if (is_array($post_value)) {
+            echo "Votre réponse: " . implode(", ", $post_value) . "<br>";
+        } else {
+            echo "Votre réponse: " . ($post_value ?? "Aucune réponse") . "<br>";
+        }
         echo "Réponse correcte: " . implode(", ", (array)$q->getAnswer()) . "<br><br>";
     }
 }
