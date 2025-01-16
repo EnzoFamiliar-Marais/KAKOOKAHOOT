@@ -4,5 +4,6 @@
         <a href="../index.php">Accueil</a>
         <a href="Quiz.php">Participer à un QCM</a>
         <a href="Resultats.php">Voir mes résultats</a>
+        <a href="Classement.php">Classement</a>
     </nav>
 </header>

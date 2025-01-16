@@ -13,6 +13,7 @@
             <a href="index.php">Accueil</a>
             <a href="../Action/Quiz.php">Participer à un QCM</a>
             <a href="../Action/Resultats.php">Voir mes résultats</a>
+            <a href="../Action/Classement.php">Classement</a>
         </nav>
     </header>
     <div class="content">
