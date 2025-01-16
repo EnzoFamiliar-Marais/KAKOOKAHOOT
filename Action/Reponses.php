@@ -1,3 +1,15 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats - QCM en Ligne</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+</html>
+
 <?php
 function answer_text($q, $v) {
     global $question_correct, $score_total, $score_correct;
@@ -37,21 +49,32 @@ $answer_handlers = array(
     "checkbox" => "answer_checkbox"
 );
 
+session_start();
+
 function verifier_reponses($questions, $post_data) {
     global $question_correct, $score_total, $score_correct, $answer_handlers;
     $question_total = 0;
 
-    echo '<div class="result">'; // Bloc des résultats
+    $_SESSION['score'] = 0;
+    $question_correct = 0;
+    $score_total = 0;
+    $score_correct = 0;
+
     foreach ($questions as $q) {
         $question_total += 1;
         $answer_handlers[$q->getType()]($q, $post_data[$q->getName()] ?? NULL);
+        if ($post_data[$q->getName()] == $q->getAnswer()) {
+            $question_correct += 1;
+            $score_correct += $q->getScore();
+        }
+        $score_total += $q->getScore();
     }
 
-    echo "<p class='result-correct'>Réponses correctes : $question_correct / $question_total</p>";
-    echo "<p class='result-score'>Votre score : $score_correct / $score_total</p>";
-    echo '</div>';
-    
-    reponses_questions($questions, $post_data); // Affiche les détails des réponses
+    $_SESSION['score'] = $score_correct;
+
+    reponses_questions($questions, $post_data);
+    echo "Réponses correctes: $question_correct/$question_total<br>";
+    echo "Votre score: $score_correct/$score_total<br>";
 }
 
 function reponses_questions($questions, $post_data) {
