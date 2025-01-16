@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+<?php include '../Templates/header.php'; ?>
 </body>
 <?php
 session_start(); // Démarrer la session
@@ -33,7 +33,7 @@ if ($name == 'Anonyme') {
 ?>
 
 <body>
-<?php include '../Templates/header.php'; ?>
+
     <div class="content">
         <h1 class="title">Vos résultats</h1>
         <p>Nom du joueur : <?php echo htmlspecialchars($name); ?></p>

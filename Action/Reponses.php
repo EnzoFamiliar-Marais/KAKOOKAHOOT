@@ -8,6 +8,9 @@
     <title>Résultats - QCM en Ligne</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
+
+
 </html>
 
 <?php
