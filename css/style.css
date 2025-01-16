@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #470168;
+}
+
+/* Style pour le header */
+header {
+    background-color: #6f059c;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #512DA8; /* Violet plus foncé */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Changement de couleur au survol des boutons */
+nav a:hover {
+    background-color: #9575CD; /* Violet clair */
+}
+
+/* Style pour le contenu */
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content h2 {
+    color: #efe8ff; /* Violet pour le titre */
+}
+
+.content p {
+    color: #ffe6e6;
+}
+
+/* Style pour le formulaire du quiz */
+form {
+    background-color: #5f1682;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    color: white;
+}
+
+form ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Style pour les questions et les réponses (même arrière-plan) */
+form li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    background-color: #6f059c; /* Même arrière-plan pour les questions et les réponses */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Style pour les inputs (text, radio, checkbox) */
+input[type="text"],
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+    background-color: #6f059c; /* Même couleur de fond que les questions */
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #512DA8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #9575CD;
+}
+
+/* Style pour les labels */
+label {
+    margin-left: 5px;
+    background-color: #6f059c; /* Même arrière-plan que les questions */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Style pour le bloc contenant les résultats */
+.result {
+    background-color: #6f059c; /* Couleur de fond pour le bloc des résultats */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 30px auto; /* Centrer le bloc des résultats */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
+    border: 2px solid #512DA8; /* Bordure pour encadrer les résultats */
+}
+
+/* Style pour les réponses correctes et le score */
+.result-correct, .result-score {
+    font-weight: bold;
+    color: #FFC107; /* Couleur jaune pour mettre en valeur */
+}
