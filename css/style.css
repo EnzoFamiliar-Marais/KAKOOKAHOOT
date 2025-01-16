@@ -101,9 +101,7 @@ input[type="submit"]:hover {
 /* Style pour les labels */
 label {
     margin-left: 5px;
-    background-color: #6f059c; /* Même arrière-plan que les questions */
     padding: 5px;
-    border-radius: 5px;
 }
 
 /* Style pour le bloc contenant les résultats */
