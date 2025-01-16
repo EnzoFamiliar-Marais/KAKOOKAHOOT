@@ -33,13 +33,12 @@ if ($name == 'Anonyme') {
 ?>
 
 <body>
-    <header>
-        <h1>Vos résultats</h1>
-    </header>
+<?php include '../Templates/header.php'; ?>
     <div class="content">
+        <h1 class="title">Vos résultats</h1>
         <p>Nom du joueur : <?php echo htmlspecialchars($name); ?></p>
         <p>Votre score est : <?php echo htmlspecialchars($score); ?></p>
-        <a href="../index.php">Retour à l'accueil</a>
+        <a class="back-home" href="../index.php">Retour à l'accueil</a>
     </div>
 </body>
 </html>
