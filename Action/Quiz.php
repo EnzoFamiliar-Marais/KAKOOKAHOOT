@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<?php include '../Templates/header.php'; ?>
 <?php
-
+include '../Templates/header.php'; 
 
 require_once '../Classes/autoloader.php';
 require_once '../Classes/Form/QuestionProvider.php';
