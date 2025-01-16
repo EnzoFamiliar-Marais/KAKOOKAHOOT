@@ -41,31 +41,39 @@ function verifier_reponses($questions, $post_data) {
     global $question_correct, $score_total, $score_correct, $answer_handlers;
     $question_total = 0;
 
+    echo '<div class="result">'; // Bloc des résultats
     foreach ($questions as $q) {
         $question_total += 1;
         $answer_handlers[$q->getType()]($q, $post_data[$q->getName()] ?? NULL);
     }
 
-    reponses_questions($questions, $post_data);
-    echo "Réponses correctes: $question_correct/$question_total<br>";
-    echo "Votre score: $score_correct/$score_total<br>";
+    echo "<p class='result-correct'>Réponses correctes : $question_correct / $question_total</p>";
+    echo "<p class='result-score'>Votre score : $score_correct / $score_total</p>";
+    echo '</div>';
+    
+    reponses_questions($questions, $post_data); // Affiche les détails des réponses
 }
 
 function reponses_questions($questions, $post_data) {
     global $answer_handlers;
+
+    echo '<div class="content">'; // Bloc contenant les questions et réponses
     foreach ($questions as $q) {
         $post_value = $post_data[$q->getName()] ?? NULL;
 
-        $answer_handlers[$q->getType()]($q, $post_value);
+        echo '<div class="question-block">';
+        echo "<p class='question'>" . htmlspecialchars($q->getText()) . "</p>";
 
-        echo "Question: " . $q->getText() . "<br>";
         if (is_array($post_value)) {
-            echo "Votre réponse: " . implode(", ", $post_value) . "<br>";
+            echo "<p class='your-answer'>Votre réponse : " . implode(", ", array_map('htmlspecialchars', $post_value)) . "</p>";
         } else {
-            echo "Votre réponse: " . ($post_value ?? "Aucune réponse") . "<br>";
+            echo "<p class='your-answer'>Votre réponse : " . htmlspecialchars($post_value ?? "Aucune réponse") . "</p>";
         }
-        echo "Réponse correcte: " . implode(", ", (array)$q->getAnswer()) . "<br><br>";
+
+        echo "<p class='correct-answer'>Réponse correcte : " . implode(", ", array_map('htmlspecialchars', (array)$q->getAnswer())) . "</p>";
+        echo '</div>';
     }
+    echo '</div>';
 }
 
 ?>

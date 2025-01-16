@@ -29,7 +29,7 @@ $action = $_GET["action"] ?? "";
 switch ($action) {
     case "submit": 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            echo "<h1>Résultats</h1>";
+            echo "<h1 class='title'>Résultats</h1>";
             verifier_reponses($questions, $_POST);
         } else {
             echo "Aucune réponse";

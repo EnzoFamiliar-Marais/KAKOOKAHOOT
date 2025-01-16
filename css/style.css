@@ -104,6 +104,18 @@ label {
     padding: 5px;
 }
 
+.title {
+    background-color: #6f059c; /* Couleur de fond pour le bloc des résultats */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 30px auto; /* Centrer le bloc des résultats */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
+    border: 2px solid #512DA8; /* Bordure pour encadrer les résultats */
+}
+
 /* Style pour le bloc contenant les résultats */
 .result {
     background-color: #6f059c; /* Couleur de fond pour le bloc des résultats */
@@ -121,4 +133,34 @@ label {
 .result-correct, .result-score {
     font-weight: bold;
     color: #FFC107; /* Couleur jaune pour mettre en valeur */
+}
+
+/* Style pour les blocs de questions */
+.question-block {
+    margin: 20px auto; /* Centrer horizontalement */
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 800px; /* Limite la largeur pour une meilleure lisibilité */
+    background-color: #6f059c; /* Même arrière-plan que le formulaire */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de relief */
+    color: white;
+    text-align: center; /* Alignement du texte à gauche (modifiable si besoin) */
+}
+
+/* Style pour les questions */
+.question {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Style pour les réponses de l'utilisateur */
+.your-answer {
+    color: #FFC107; /* Jaune pour les réponses données */
+    margin-bottom: 5px;
+}
+
+/* Style pour les réponses correctes */
+.correct-answer {
+    color: #4CAF50; /* Vert pour les réponses correctes */
 }
