@@ -16,6 +16,7 @@
 <?php
 
 require_once '../Classes/Form/Database.php';
+require_once '../Data/database.sqlite';
 
 
 function answer_text($q, $v) {
@@ -83,7 +84,7 @@ function verifier_reponses($questions, $post_data) {
     echo "Réponses correctes: $question_correct/$question_total<br>";
     echo "Votre score: $score_correct/$score_total<br>";
 
-    $db = new \Classes\Form\Database('../../Data/database.sqlite');
+    $db = new \Classes\Form\Database('../Data/database.sqlite');
     $name = $_SESSION['name'] ?? 'Anonyme';
     $db->saveScore($name, $score_correct);
 }

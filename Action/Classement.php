@@ -20,10 +20,11 @@
             </thead>
             <tbody>
                 <?php
-                echo '/../../Data/database.sqlite' ;
-                require_once '/../../Data/database.sqlite';
+                echo '../Data/database.sqlite' ;
+                require_once '../Data/database.sqlite';
+                require_once '../Classes/Form/Database.php';
                 
-                $db = new \Classes\Form\Database('/../../Data/database.sqlite');
+                $db = new \Classes\Form\Database('../Data/database.sqlite');
                 $scores = $db->getScores();
                 foreach ($scores as $row) {
                     echo "<tr>

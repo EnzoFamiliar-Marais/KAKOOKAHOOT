@@ -41,5 +41,14 @@ class Database {
         $sql = "SELECT * FROM scores ORDER BY score DESC, date DESC";
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getScore($name) {
+        $sql = "SELECT * FROM scores WHERE id = :name";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
 }
 ?>
