@@ -21,7 +21,7 @@ $question_correct = 0;
 $score_total = 0;
 $score_correct = 0;
 
-$provider = new Classes\Form\QuestionProvider('../Data/questions.JSON');
+$provider = new Classes\Form\QuestionProvider('../Data/quiz.json');
 $questions = $provider->getQuestions();
 
 $action = $_GET["action"] ?? "";

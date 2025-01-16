@@ -1,0 +1,30 @@
+[
+    {
+        "name": "question_1",
+        "type": "radio",
+        "text": "Feur",
+        "choices": [
+            {
+                "text": "Jaune",
+                "value": "jaune"
+            },
+            {
+                "text": "Noir",
+                "value": "noir"
+            },
+            {
+                "text": "Bleu",
+                "value": "bleu"
+            }
+        ],
+        "answer": "Jaune",
+        "score": 1
+    },
+    {
+        "name": "question_2",
+        "type": "text",
+        "text": "Quel est lui ?",
+        "answer": "lui",
+        "score": 1
+    }
+]
