@@ -7,38 +7,38 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+<?php include '../Templates/header.php'; ?>
 </body>
 <?php
 session_start(); // Démarrer la session
 
+require_once '../Classes/Form/Database.php';
+use Classes\Form\Database;
+
+if ($_SESSION['name'] == null){
+    header("Location: ../index.php");
+    exit();
+} 
 // Vérifier si le score est défini dans la session
 $score = $_SESSION['score'] ?? 0;
 
 $name = $_SESSION['name'] ?? 'Anonyme';
-if ($name == 'Anonyme') {
-    echo '<form method="post" action="">
-            <label for="name">Entrez votre nom :</label>
-            <input type="text" id="name" name="name" required>
-            <button type="submit">Soumettre</button>
-          </form>';
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['name'])) {
-        $_SESSION['name'] = htmlspecialchars($_POST['name']);
-        header("Location: " . $_SERVER['PHP_SELF']);
-        exit();
-    }
-    exit();
-}
+
+$db = new Classes\Form\Database('../Data/database.sqlite');
 
 ?>
 
 <body>
-<?php include '../Templates/header.php'; ?>
+
     <div class="content">
         <h1 class="title">Vos résultats</h1>
         <p>Nom du joueur : <?php echo htmlspecialchars($name); ?></p>
-        <p>Votre score est : <?php echo htmlspecialchars($score); ?></p>
+        <?php
+        $score = $db->getScore($name); // $score est un tableau
+        echo "<p>Votre score est : " . htmlspecialchars($score['score']) . "</p>";
+        ?>
         <a class="back-home" href="../index.php">Retour à l'accueil</a>
+
     </div>
 </body>
 </html>

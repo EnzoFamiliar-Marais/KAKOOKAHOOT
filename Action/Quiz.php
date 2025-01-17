@@ -8,6 +8,15 @@
 </head>
 <body>
 <?php
+
+session_start();
+
+if ($_SESSION['name'] == null){
+    header("Location: ../index.php");
+    exit();
+} 
+
+
 include '../Templates/header.php'; 
 
 require_once '../Classes/autoloader.php';

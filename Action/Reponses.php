@@ -8,9 +8,17 @@
     <title>Résultats - QCM en Ligne</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
+
+
 </html>
 
 <?php
+
+require_once '../Classes/Form/Database.php';
+
+
+
 function answer_text($q, $v) {
     global $question_correct, $score_total, $score_correct;
     $score_total += $q->getScore();
@@ -75,6 +83,10 @@ function verifier_reponses($questions, $post_data) {
     reponses_questions($questions, $post_data);
     echo "Réponses correctes: $question_correct/$question_total<br>";
     echo "Votre score: $score_correct/$score_total<br>";
+
+    $db = new \Classes\Form\Database('../Data/database.sqlite');
+    $name = $_SESSION['name'] ?? 'Anonyme';
+    $db->saveScore($name, $score_correct);
 }
 
 function reponses_questions($questions, $post_data) {
