@@ -1,8 +1,15 @@
 <?php
+
+
+session_start();
+
+if ($_SESSION['name'] == null){
+    header("Location: ../index.php");
+    exit();
+} 
 // Définir le fichier JSON pour stocker les questions
 $jsonFile = 'quiz.json';
 
-// Charger les questions depuis le fichier JSON ou initialiser un tableau vide
 $questions = file_exists($jsonFile) ? json_decode(file_get_contents($jsonFile), true) : [];
 
 // Ajouter une nouvelle question
@@ -59,7 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_json'])) {
     <?php include '../Templates/header.php'; ?>
     <h1 class="title">Création d'un quiz</h1>
 
-    <!-- Affichage des questions -->
     <div id="quiz-container">
         <?php if (!empty($questions)): ?>
             <?php foreach ($questions as $index => $question): ?>
@@ -83,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_json'])) {
         <?php endif; ?>
     </div>
 
-    <!-- Formulaire pour ajouter une nouvelle question -->
     <form method="POST">
         <h2>Ajouter une nouvelle question</h2>
         <label for="text">Texte de la question :</label><br>
