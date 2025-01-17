@@ -5,5 +5,7 @@
         <a href="Quiz.php">Participer à un QCM</a>
         <a href="Resultats.php">Voir mes résultats</a>
         <a href="Classement.php">Classement</a>
+        <a href="CreerQuiz.php">Créer un Quiz</a>
+
     </nav>
 </header>
