@@ -33,8 +33,12 @@ $db = new Classes\Form\Database('../Data/database.sqlite');
     <div class="content">
         <h1 class="title">Vos résultats</h1>
         <p>Nom du joueur : <?php echo htmlspecialchars($name); ?></p>
-        <p>Votre score est : <?php echo $db->getScore($name); ?></p>
+        <?php
+        $score = $db->getScore($name); // $score est un tableau
+        echo "<p>Votre score est : " . htmlspecialchars($score['score']) . "</p>";
+        ?>
         <a class="back-home" href="../index.php">Retour à l'accueil</a>
+
     </div>
 </body>
 </html>

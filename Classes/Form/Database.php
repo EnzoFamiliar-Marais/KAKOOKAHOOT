@@ -43,9 +43,9 @@ class Database {
     }
 
     public function getScore($name) {
-        $sql = "SELECT * FROM scores WHERE id = :name";
+        $sql = "SELECT score FROM scores WHERE name = :name";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([':id' => $name]);
+        $stmt->execute([':name' => $name]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 

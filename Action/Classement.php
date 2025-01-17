@@ -1,3 +1,11 @@
+<?php
+
+session_start(); // Start the session
+
+require_once '../Classes/Form/Database.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,12 +28,11 @@
             </thead>
             <tbody>
                 <?php
-                echo '../Data/database.sqlite' ;
-                require_once '../Data/database.sqlite';
-                require_once '../Classes/Form/Database.php';
+                
                 
                 $db = new \Classes\Form\Database('../Data/database.sqlite');
                 $scores = $db->getScores();
+                
                 foreach ($scores as $row) {
                     echo "<tr>
                             <td>" . htmlspecialchars($row['name']) . "</td>

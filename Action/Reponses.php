@@ -16,7 +16,7 @@
 <?php
 
 require_once '../Classes/Form/Database.php';
-require_once '../Data/database.sqlite';
+
 
 
 function answer_text($q, $v) {
