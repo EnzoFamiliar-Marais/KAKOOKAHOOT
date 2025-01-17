@@ -52,7 +52,7 @@
         }
     }
 
-    echo '<footer>Vous pouvez vous désinscrire juste ici <a href="./index.php?action=logout">cliquez ici</a></footer>';
+    echo '<p>Vous pouvez vous désinscrire juste ici <a href="./index.php?action=logout">cliquez ici</a></p>';
     ?>
  
 
